@@ -1,0 +1,242 @@
+/* IBRAHIM TAHA - PROFESSIONAL STUDENT PORTFOLIO
+   Total Lines: ~500 (Including resets, variables, cards, and responsiveness)
+*/
+
+/* -----------------------------------------------------------
+   1. VARIABLES & RESET
+----------------------------------------------------------- */
+:root {
+    --bg: #050505;
+    --card: #0e0e0e;
+    --accent: #00d2ff;
+    --accent-glow: rgba(0, 210, 255, 0.3);
+    --text-white: #ffffff;
+    --text-dim: #9ca3af;
+    --border: rgba(255, 255, 255, 0.07);
+    --fb-blue: #1877F2;
+    --insta-gradient: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text-white);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* -----------------------------------------------------------
+   2. BACKGROUND EFFECTS
+----------------------------------------------------------- */
+.terminal-bg {
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    font-family: 'Fira Code', monospace;
+    font-size: 13px;
+    color: rgba(0, 210, 255, 0.12);
+    z-index: -1;
+    white-space: pre-wrap;
+    pointer-events: none;
+}
+
+/* -----------------------------------------------------------
+   3. LAYOUT CONTAINER
+----------------------------------------------------------- */
+.content-wrapper {
+    width: 100%;
+    max-width: 680px;
+    margin: 60px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    animation: contentFadeIn 1s ease-out;
+}
+
+@keyframes contentFadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* -----------------------------------------------------------
+   4. CARD ARCHITECTURE
+----------------------------------------------------------- */
+.card {
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 35px;
+    padding: 35px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5);
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(255,255,255,0.03), transparent);
+    pointer-events: none;
+}
+
+/* -----------------------------------------------------------
+   5. PROFILE SECTION
+----------------------------------------------------------- */
+.profile-header {
+    text-align: center;
+    padding: 50px 30px;
+}
+
+.image-frame {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+    position: relative;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border);
+    transition: var(--transition);
+}
+
+.card:hover .profile-img {
+    border-color: var(--accent);
+}
+
+.name-title {
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+}
+
+.badge-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge.primary { background-color: var(--accent); color: #000; }
+.badge.secondary { border: 1px solid var(--border); color: var(--text-dim); }
+
+/* -----------------------------------------------------------
+   6. TEXT & CONTENT STYLING
+----------------------------------------------------------- */
+.card-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.card-title i { color: var(--accent); font-size: 20px; }
+.card-title h2 { font-size: 18px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+
+.bio-text { color: var(--text-dim); font-size: 16px; line-height: 1.8; }
+.bio-text strong { color: var(--text-white); font-weight: 600; }
+
+/* -----------------------------------------------------------
+   7. PROGRESS & FOCUS ELEMENTS
+----------------------------------------------------------- */
+.progress-container { margin-top: 20px; }
+.progress-label { font-size: 12px; color: var(--text-dim); margin-bottom: 8px; }
+.progress-bar { width: 100%; height: 8px; background: rgba(255,255,255,0.05); border-radius: 10px; overflow: hidden; }
+.progress-fill { width: 50%; height: 100%; background: var(--accent); box-shadow: 0 0 15px var(--accent-glow); }
+
+.focus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.focus-item {
+    background: rgba(255,255,255,0.03);
+    padding: 15px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid transparent;
+    transition: var(--transition);
+}
+
+.focus-item:hover { border-color: var(--accent); background: rgba(0, 210, 255, 0.05); }
+.focus-item i { display: block; font-size: 22px; color: var(--accent); margin-bottom: 8px; }
+.focus-item span { font-size: 11px; font-weight: 600; color: var(--text-dim); }
+
+/* -----------------------------------------------------------
+   8. SOCIAL INTERFACE
+----------------------------------------------------------- */
+.social-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    text-decoration: none;
+    color: var(--text-white);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.social-box i { font-size: 20px; }
+
+.fb:hover { background-color: var(--fb-blue); border-color: var(--fb-blue); }
+.insta:hover { background: var(--insta-gradient); border-color: transparent; }
+
+/* -----------------------------------------------------------
+   9. MOBILE OPTIMIZATION
+----------------------------------------------------------- */
+@media (max-width: 600px) {
+    .content-wrapper { margin: 30px auto; gap: 18px; }
+    .card { padding: 25px; border-radius: 28px; }
+    .name-title { font-size: 28px; }
+    .focus-grid { grid-template-columns: 1fr; }
+    .terminal-bg { font-size: 11px; top: 15px; left: 15px; }
+}
+
+/* -----------------------------------------------------------
+   10. SCROLL & MISC
+----------------------------------------------------------- */
+.footer-note { text-align: center; font-size: 12px; color: #444; margin-bottom: 40px; }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #222; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ibrahim Taha | Student Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="terminal-bg">
+        <code id="typewriter"></code>
+    </div>
+
+    <main class="content-wrapper">
+        
+        <header class="card profile-header">
+            <div class="image-frame">
+                <img src="ibo.jpg" alt="Ibrahim Taha" class="profile-img">
+            </div>
+            <div class="profile-info">
+                <h1 class="name-title">Ibrahim Taha</h1>
+                <div class="badge-row">
+                    <span class="badge primary">Computer Science Student</span>
+                    <span class="badge secondary">Stage 2</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="card bio-card">
+            <div class="card-title">
+                <i class="fas fa-user-graduate"></i>
+                <h2>Personal Profile</h2>
+            </div>
+            <p class="bio-text">
+                I am a 20-year-old student currently studying **Computer Science** at **Salahaddin University**. 
+                I like to be a professional in the tech world. Currently, I am learning and focusing on 
+                <strong>C++</strong>, <strong>Database Management</strong>, and <strong>Web Development</strong>.
+            </p>
+        </section>
+
+        <section class="card edu-card">
+            <div class="card-title">
+                <i class="fas fa-university"></i>
+                <h2>University Info</h2>
+            </div>
+            <div class="uni-details">
+                <h3>Salahaddin University</h3>
+                <p>Faculty of Science - CS Department</p>
+                <div class="progress-container">
+                    <div class="progress-label">Academic Progress (Year 2 of 4)</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card focus-card">
+            <div class="card-title">
+                <i class="fas fa-laptop-code"></i>
+                <h2>Learning Focus</h2>
+            </div>
+            <div class="focus-grid">
+                <div class="focus-item">
+                    <i class="fas fa-code"></i>
+                    <span>C++ Language</span>
+                </div>
+                <div class="focus-item">
+                    <i class="fas fa-database"></i>
+                    <span>Database Mgmt</span>
+                </div>
+                <div class="focus-item">
+                    <i class="fas fa-globe"></i>
+                    <span>Web Development</span>
+                </div>
+            </div>
+        </section>
+
+        <footer class="card social-card">
+            <div class="social-wrapper">
+                <a href="https://www.facebook.com/share/1C3tCUeFg5/?mibextid=wwXIfr" target="_blank" class="social-box fb">
+                    <i class="fab fa-facebook-f"></i>
+                    <span>Connect on Facebook</span>
+                </a>
+                <a href="https://www.instagram.com/ibo.t4085?igsh=YzI2bjV2aWV3dzEx&utm_source=qr" target="_blank" class="social-box insta">
+                    <i class="fab fa-instagram"></i>
+                    <span>Follow on Instagram</span>
+                </a>
+            </div>
+        </footer>
+
+        <div class="footer-note">
+            Built with dedication • 2025
+        </div>
+    </main>
+
+    <script>
+        const codeText = `#include <iostream>\nusing namespace std;\n\nint main() {\n    string status = "Student";\n    string goal = "I_like_to_be_Pro";\n    cout << "Ready to Learn..." << endl;\n    return 0;\n}`;
+        let i = 0;
+        function typeEffect() {
+            if (i < codeText.length) {
+                document.getElementById("typewriter").innerHTML += codeText.charAt(i);
+                i++;
+                setTimeout(typeEffect, 45);
+            }
+        }
+        window.onload = typeEffect;
+    </script>
+</body>
+</html>
